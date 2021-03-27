@@ -3,17 +3,20 @@ const http = require('http');
 const sys = require('util');
 const session = require('express-session')
 
-// const multer = require('multer');
 const path = require('path');
 const fs = require('fs'); //use the file system so we can save files
-// const mongo = require('mongodb');
-// const assert = require('assert');
-//
-// const url = 'mongodb://localhost:3000/test'
+
+
+// var compression = require('compression');
+// var helmet = require('helmet');
+
 
 const app = express();
 
 const port = process.env.PORT || 8000;
+
+// app.use(helmet());
+// app.use(compression()); //Compress all routes
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.json());
@@ -49,7 +52,7 @@ app.post('/receive', (req, res) => {
   const session = req.sessionID.substring(0, 4)
 
   // Target file path
-  let filePath = __dirname + `/testWrite/p-${session}.json`;
+  let filePath = __dirname + `/public/testWriter/p-${session}.json`;
 
   let buf = Buffer.from(JSON.stringify(incomingJSON));
 

@@ -71,23 +71,33 @@ function sendPToServer(content){
 
 
 
- let paragraphs_server, p_server, 			// REFERENCES TO THE pragraph div and single paragraphs
+ let paragraphs_server, p_server 			// REFERENCES TO THE pragraph div and single paragraphs
 
- function initSite( ) {
+ function initSite() {
 
   paragraphs_server = document.querySelector( '#paragraphs_server' );
  	p_server = document.querySelector( '#p_server' );
 
-  fetch( '/receive/p-4FnC.json' )
+  fetch( '../testWriter/p-XGtZ.json' )
 
  		.then( res => res.json( ) )
  		.then( ( out ) => {
  			let results = out.contents;
 
  			if ( results )
- 			  p_server.innerText = results
+ 			  p_server.innerText = `${results}`
  		} );
+  // fetch( 'https://flowertokens.hashbase.io/%20flower1.json' )
+  //
+ 	// 	.then( res => res.json( ) )
+ 	// 	.then( ( out ) => {
+ 	// 		let results = out.Flower.id;
+  //     console.log(out.Flower.id);
+  //
+ 	// 		if ( results )
+ 	// 		  p_server.innerText = `${results}`
+ 	// 	} );
 
- }
+}
 
  window.onload = initSite;

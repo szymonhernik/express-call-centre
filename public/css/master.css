@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: 'BebasNeue';
   src: url(src/styles/364E49_0_0.eot);
   src: url(src/styles/364E49_0_0.eot?#iefix) format("embedded-opentype"), url(src/styles/364E49_0_0.woff2) format("woff2"), url(src/styles/364E49_0_0.woff) format("woff"), url(src/styles/364E49_0_0.ttf) format("truetype")
@@ -124,7 +124,7 @@ body {
 }
 
 header, main, footer, aside {
-  /* position: absolute */
+  position: absolute
 }
 
 header {
@@ -943,3 +943,4 @@ span.footer {
   visibility: hidden;
   pointer-events: none
 }
+ */
