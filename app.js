@@ -23,7 +23,7 @@ app.set('views', 'public')
 // mongoose.connect('mongodb+srv://net-user:test1234@call-center.mprpi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 
 // Set up mongoose connection
-var dev_db_url = 'mongodb+srv://net-user:test1234@call-center.mprpi.mongodb.net/Speech?retryWrites=true&w=majority'
+var dev_db_url = 'mongodb+srv://net-user:test1234@call-center.mprpi.mongodb.net/Speech?ssl=true&retryWrites=true&w=majority'
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(
   dev_db_url,
