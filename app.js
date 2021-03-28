@@ -9,6 +9,8 @@ const fs = require('fs'); //use the file system so we can save files
 //Import the mongoose module
 var mongoose = require('mongoose');
 
+const port = process.env.PORT || 8000;
+
 const app = express();
 
 //register view engine EJS
@@ -16,7 +18,6 @@ app.set('view engine', 'ejs')
 app.set('views', 'public')
 
 
-const port = process.env.PORT || 8000;
 
 
 // mongoose.connect('mongodb+srv://net-user:test1234@call-center.mprpi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
@@ -92,6 +93,7 @@ app.get('/', function(req, res) {
 
 
 //makes the app listen for requests on port 3000
+app.set("port", port)
 app.listen(port, () => console.log(`Listening on port ${port}...`));
 
 app.post('/receive', (req, res) => {
