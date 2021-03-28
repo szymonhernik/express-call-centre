@@ -15,7 +15,8 @@
   <body>
 
   <button type="button" name="button" id="call-button">Call</button>
-  <div id="paragraphs_server">
+    <!-- <p id="p_server"></p> -->
+
     <% if (inReturn.length > 0) { %>
       <% inReturn.forEach(data => { %>
         <% for (var i = 0; i < data.contents.length; i++) { %>
@@ -27,11 +28,10 @@
 
       <% }) %>
     <% } %>
-    <p id="p_server"></p>
 
 
 
-  </div>
+
 
   </body>
 </html>
