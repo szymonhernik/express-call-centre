@@ -8,8 +8,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "serve -s build",
-    "dev": "node app.js"
+    "start": "node app.js",
+    "dev": "nodemon ./bin/www"
   },
   "keywords": [],
   "author": "",
