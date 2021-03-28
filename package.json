@@ -8,8 +8,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "dev": "nodemon ./bin/www"
+    "start": "serve -s build",
+    "dev": "node app.js"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +21,8 @@
     "express-session": "^1.17.1",
     "helmet": "^4.4.1",
     "mongodb": "^3.6.5",
-    "mongoose": "^5.12.2"
+    "mongoose": "^5.12.2",
+    "serve": "^11.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
