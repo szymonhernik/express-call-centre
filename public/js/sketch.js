@@ -2,7 +2,6 @@ let mic, recorder, soundFile;
 let state = 0;
 let counter =0;
 
-let callButton = document.getElementById("call-button");
 
 let paragraphs_server, p_server 			// REFERENCES TO THE pragraph div and single paragraphs
 
@@ -13,17 +12,15 @@ function initSite() {
 
 }
 
-
-
 function setup() {
 
+  //  setting up p5.js Speech Recognition
   let lang = navigator.language || 'pl-PL';
   let speechRec = new p5.SpeechRec(lang, gotSpeech);
-
   let continous = true;
   let interim = false;
 
-  // Function to change the content of t2
+  //  Function to change the content of the button
   function modifyText(new_text, element) {
     // const t2 = document.getElementById("call-button");
     element.firstChild.nodeValue = new_text;
@@ -31,17 +28,23 @@ function setup() {
 
   document.getElementById("call-button").addEventListener("click", function(){
     if(this.firstChild.nodeValue =="leave your message") {
+      //modifing text of the button
       modifyText("thank you", this)
-      console.log(contents_Array);
+
+
+      //  PASS ARRAY TO THE SERVER
+      //  console.log(contents_Array);
       sendPToServer(contents_Array);
 
     } else if (this.firstChild.nodeValue =="Call") {
+      //  modifing text of the button
       modifyText("calling", this)
       var that = this;
       setTimeout( function () {
         modifyText("leave your message", that)
       }, 3000);
 
+      //  when button with value CALL clicked => start listening for speech recognition
       speechRec.start(continous,interim);
     }
 
@@ -65,7 +68,6 @@ function setup() {
 
 // send the p to the server
 function sendPToServer(content){
-  // console.log(content);
   // Create a POST request to '/receive'
     const data = {
         author: "author",
@@ -83,11 +85,8 @@ function sendPToServer(content){
     }
     // console.log(options.body)
     fetch('/receive', options);
-// Send the image data to the server
     console.log('text is sent');
  }
-
-
 
 
  window.onload = initSite;
