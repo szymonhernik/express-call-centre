@@ -1,7 +1,6 @@
 const express = require('express');
 const http = require('http');
 const sys = require('util');
-const session = require('express-session')
 const router = express.Router();
 
 const path = require('path');
@@ -10,11 +9,9 @@ const fs = require('fs'); //use the file system so we can save files
 //Import the mongoose module
 var mongoose = require('mongoose');
 
-
-
 const app = express();
 
-//register view engine
+//register view engine EJS
 app.set('view engine', 'ejs')
 app.set('views', 'public')
 
@@ -29,7 +26,6 @@ var dev_db_url = 'mongodb+srv://net-user:test1234@call-center.mprpi.mongodb.net/
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(
   dev_db_url,
-
    {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -37,24 +33,17 @@ mongoose.connect(
 );
 
 
-
+// Add Static files
 app.use(express.static(__dirname + '/public'));
-// app.use(express.static(__dirname + '/api'));
 
+// require schema of the Reading model
 const Reading = require(__dirname + '/api/models/schema.js')
 
 app.use(express.json());
-app.use(session({
-  secret: 'picasso',
-  resave: true,
-  saveUninitialized: true,
-  cookie: {
-    maxAge: 3600000,
-    secure: false,
-    httpOnly: true
-  }
-}));
 
+
+// default state array
+// this array is used to contain results from the database
 const inReturn = [
   {contents: "x"}
 ]
@@ -63,26 +52,23 @@ app.get("/readings", (req,res,next)=> {
   Reading.find()
     .exec()
     .then(docs => {
-      console.log('-------------------------------------------');
-      console.log('The results of database GET/readings', '\n');
-      for (var i = 0; i < docs.length; i++) {
-        console.log( docs[i].contents)
-        // for (var i = 0; i < docs[i].contents.length; i++) {
-        //   // console.log(${docs[i].contents[i]});
-        // }
-      }
-      console.log('-------------------------------------------','\n');
+
+          console.log('-------------------------------------------');
+          console.log('The results of database GET/readings', '\n');
+          for (var i = 0; i < docs.length; i++) {
+            console.log( docs[i].contents)
+          }
+          console.log('-------------------------------------------','\n');
 
 
       inReturn.contents = docs;
 
-      console.log('Overwritten inReturn array of objects','\n');
-      console.log(inReturn.contents);
-      console.log('----------------------------------------------','\n');
-      // console.log("this is docs------"+docs+"------end of docs");
+          console.log('Overwritten inReturn array of objects','\n');
+          console.log(inReturn.contents);
+          console.log('----------------------------------------------','\n');
+
+      //Send values from the array with database values to the TEMPLATE
       res.render('index', {inReturn: inReturn.contents})
-      // res.status(200).json(docs)
-      // res.render('reading', {inReturn: inReturn})
     })
     .catch(err => {
       console.log(err)
@@ -93,6 +79,7 @@ app.get("/readings", (req,res,next)=> {
 })
 app.get('/', function(req, res) {
 
+  //from default page redirect to readings to call database for its contents
   res.redirect('/readings')
 
   // res.render('index', {inReturn: inReturn})
@@ -107,13 +94,9 @@ app.get('/', function(req, res) {
 //makes the app listen for requests on port 3000
 app.listen(port, () => console.log(`Listening on port ${port}...`));
 
-
 app.post('/receive', (req, res) => {
-  // res.send('Hello World!')
-  // console.log(req.body.contents)
 
-
-  // Receive the request JSON
+  // Receive the request JSON of a recording after the button is clicked
   const incomingJSON = req.body;
   const authorData = incomingJSON.author;
   const contentData = incomingJSON.contents;
@@ -123,34 +106,20 @@ app.post('/receive', (req, res) => {
   //   author: 'author',
   //   contents: [ 'dzień dobry', 'Dzień dobry znowu' ]
   // }
+
+  // USE MODEL
   const jsonSpeech = new Reading ({
     _id: new mongoose.Types.ObjectId(),
     author: authorData,
     contents: contentData
   });
-
+  // SAVE IT IN THE DATABASE
   jsonSpeech
     .save()
     .then(result => {
       // console.log(result);
     })
     .catch(err => console.log(err))
-
-  const session = req.sessionID.substring(0, 4)
-
-  // Target file path
-  let filePath = __dirname + `/public/testWriter/p-${session}.json`;
-
-  let buf = Buffer.from(JSON.stringify(incomingJSON));
-
-  fs.writeFile(filePath, buf, 'utf8', (err) => {
-    if (err) {
-      throw err
-    }
-
-     res.send("success")
-     // console.log( JSON.parse(buf.toString()));
-  });
 
 
 });
