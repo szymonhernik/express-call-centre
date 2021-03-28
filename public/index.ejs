@@ -14,12 +14,16 @@
 
   <body>
 
-  <button type="button" name="button" id="call-button">Called</button>
+  <button type="button" name="button" id="call-button">Call</button>
   <div id="paragraphs_server">
     <% if (inReturn.length > 0) { %>
       <% inReturn.forEach(data => { %>
+        <% for (var i = 0; i < data.contents.length; i++) { %>
+          <p id="p_servers"><%= data.contents[i] %></p>
+        <% } %>
 
-        <p id="p_servers"><%= data.contents %></p>
+        <!-- <p id="p_servers"><%= data.contents[1] %></p>
+        <p id="p_servers"><%= data.contents[2] %></p> -->
 
       <% }) %>
     <% } %>
