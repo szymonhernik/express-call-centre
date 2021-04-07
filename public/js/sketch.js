@@ -59,8 +59,10 @@ function setup() {
       // push the resulted string to the array
       contents_Array.push(speechRec.resultString);
       // add Paragraph to html
-      createP(speechRec.resultString);
-
+      let archivediv = document.querySelector(".archive")
+      let p = createP(speechRec.resultString);
+      p.parent( archivediv );
+      console.log( p );
     }
   }
 }

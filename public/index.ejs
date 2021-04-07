@@ -10,24 +10,29 @@
 
     <script src="js/sketch.js"></script>
     <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/css/master2.css">
   </head>
 
   <body>
 
   <button type="button" name="button" id="call-button">Call</button>
-    <!-- <p id="p_server"></p> -->
 
-    <% if (inReturn.length > 0) { %>
-      <% inReturn.forEach(data => { %>
-        <% for (var i = 0; i < data.contents.length; i++) { %>
-          <p id="p_servers"><%= data.contents[i] %></p>
-        <% } %>
+    <div class="archive">
+      <!-- <p id="p_server"></p> -->
+      <% <!-- inReturn.reverse( ) --> %>
+      <% if (inReturn.length > 0) { %>
+        <% inReturn.forEach(data => { %>
+          <% for (var i = 0; i < data.contents.length; i++) { %>
+            <p id="p_servers"><%= data.contents[i] %></p>
+          <% } %>
 
-        <!-- <p id="p_servers"><%= data.contents[1] %></p>
-        <p id="p_servers"><%= data.contents[2] %></p> -->
+          <!-- <p id="p_servers"><%= data.contents[1] %></p>
+          <p id="p_servers"><%= data.contents[2] %></p> -->
 
-      <% }) %>
-    <% } %>
+        <% }) %>
+      <% } %>
+
+    </div>
 
 
 
