@@ -1,39 +1,14 @@
-/* @font-face {
-  font-family: 'BebasNeue';
-  src: url(src/styles/364E49_0_0.eot);
-  src: url(src/styles/364E49_0_0.eot?#iefix) format("embedded-opentype"), url(src/styles/364E49_0_0.woff2) format("woff2"), url(src/styles/364E49_0_0.woff) format("woff"), url(src/styles/364E49_0_0.ttf) format("truetype")
-}
- */
+
 html {
   background-color: #a116ea
 }
 
 body {
-  background: -moz-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 50%);
-  background: -webkit-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 50%);
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 100%);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 50%);
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 50%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 90%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=1)
 }
-
-/* .main-overlay {
-  background-color: #a218ea
-} */
-
-/* header {
-  background-color: #a218ea
-} */
-/*
-aside.right {
-  background: -moz-linear-gradient(-45deg, rgba(162, 24, 234, 0.25) 0%, rgba(0, 0, 0, 0) 100%);
-  background: -webkit-linear-gradient(-45deg, rgba(162, 24, 234, 0.25) 0%, rgba(0, 0, 0, 0) 100%);
-  background: linear-gradient(135deg, rgba(162, 24, 234, 0.25) 0%, rgba(0, 0, 0, 0) 100%)
-} */
-
-
-h1, h2, p, a, span, .close-info-btn {
-  color: rgba(0, 0, 0, 0.9)
-}
-
 
 html * {
   box-sizing: border-box
@@ -65,83 +40,68 @@ html * {
   background-position: center
 }
 
-html {
-  transition: opacity ease .5s, filter ease .5s
-}
-
 
 * {
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: subpixel-antialiased
 }
 
-h2, p, span {
-  font-family: georgia, serif
-}
-
-h2 a, p a, span a {
-  background: transparent !important;
-  padding: 0 !important;
-  border: none !important
-}
-
-h2 a:hover, p a:hover, span a:hover {
-  text-decoration: underline !important
-}
-
 p {
-  font-size: 3vh;
+  font-family: georgia, serif;
+  font-size: 4vh !important;
   font-weight: 300;
   line-height: 1.2
 }
 
-@media all and (min-width: 800px) {
-  .info {
-    padding: 2vh 5vh 0 5vh
-  }
-
-  h1 {
-    font-size: 4.2vh
-  }
-
-  .content.top h1 {
-    font-size: 12.6vh
-  }
-
-  p {
-    font-size: 4vh
-  }
-
-  .content.top p {
-    font-size: 8vh
-  }
-
-  .menue {
-    flex-wrap: wrap
-  }
-
-  .env-link, .readmore-btn, .close-info-link {
-    font-size: 2vh
-  }
-
-  .env-link {
-    font-size: 6.4vh
-  }
-
-  .content:nth-child(2) * {
-    font-size: 12px
-  }
-
-  .instructions p {
-    font-size: 16.4vh;
-    margin: 0 0 -2vh 0
-  }
-
-  .instructions p.close-instructions-button {
-    font-size: 3.2vw
-  }
-
-  .interaction-notice span {
-    font-size: 45vh
-  }
+.archive {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
 }
+
+button {
+  margin: 0 5vw 0 3vw;
+  transform: scale(1.4);
+  border: 1px solid black;
+}
+button:hover {
+  cursor: alias;
+
+}
+
+button {
+	border: none;
+    font-size: 2vh;
+    line-height: 0.9em;
+    text-align: center;
+    color: black;
+    background-color: transparent;
+    padding: 0.75em 1em 1em 1em;
+    border-radius: 1em;
+    margin: 0 5vw 0 3vw;
+    box-shadow: 10px 5px 10px black;
+
+
+}
+button:focus {outline:0;}
+
+    @-webkit-keyframes color-change {
+        0% { color: #FFFFFF; }
+        50% { color: #FFD9D9; }
+        100% { color: #FFFFFF; }
+    }
+    @-moz-keyframes color-change {
+        0% { color: #FFFFFF; }
+        50% { color: #FFD9D9; }
+        100% { color: #FFFFFF; }
+    }
+    @-o-keyframes color-change {
+        0% { color:  #FFFFFF; }
+        50% { color: #FFD9D9; }
+        100% { color: #FFFFFF; }
+    }
+    @keyframes color-change {
+        0% { color: #FFFFFF; }
+        50% { color: #FFD9D9; }
+        100% { color: #FFFFFF; }
+	}
