@@ -20,6 +20,15 @@ function setup() {
   let continous = true;
   let interim = false;
 
+
+  // speechRec.onError = restart;
+  speechRec.onEnd = restart;
+
+  // once the record ends or an error happens, start() again. this should keep it going
+  function restart(){
+  	speechRec.start();
+  }
+
   //  Function to change the content of the button
   function modifyText(new_text, element) {
     // const t2 = document.getElementById("call-button");

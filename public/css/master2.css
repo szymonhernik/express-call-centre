@@ -1,10 +1,52 @@
-body {
-
-}
-
-
 .archive {
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
 }
+
+button {
+  margin: 0 5vw 0 3vw;
+  transform: scale(1.4);
+  border: 1px solid black;
+}
+button:hover {
+  cursor: alias;
+
+}
+
+button {
+	border: none;
+    font-size: 2vh;
+    line-height: 0.9em;
+    text-align: center;
+    color: black;
+    background-color: transparent;
+    padding: 0.75em 1em 1em 1em;
+    border-radius: 1em;
+    margin: 0 5vw 0 3vw;
+    box-shadow: 10px 5px 10px black;
+
+
+}
+button:focus {outline:0;}
+
+    @-webkit-keyframes color-change {
+        0% { color: #FFFFFF; }
+        50% { color: #FFD9D9; }
+        100% { color: #FFFFFF; }
+    }
+    @-moz-keyframes color-change {
+        0% { color: #FFFFFF; }
+        50% { color: #FFD9D9; }
+        100% { color: #FFFFFF; }
+    }
+    @-o-keyframes color-change {
+        0% { color:  #FFFFFF; }
+        50% { color: #FFD9D9; }
+        100% { color: #FFFFFF; }
+    }
+    @keyframes color-change {
+        0% { color: #FFFFFF; }
+        50% { color: #FFD9D9; }
+        100% { color: #FFFFFF; }
+	}
