@@ -2,12 +2,19 @@ const express = require('express');
 const http = require('http');
 const sys = require('util');
 const router = express.Router();
+import sslRedirect from 'heroku-ssl-redirect';
 
 const path = require('path');
 const fs = require('fs'); //use the file system so we can save files
 
+
+
+
 //Import the mongoose module
 var mongoose = require('mongoose');
+
+
+app.use(sslRedirect());
 
 const port = process.env.PORT || 8000;
 
