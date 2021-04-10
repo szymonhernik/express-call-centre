@@ -14,12 +14,12 @@ const fs = require('fs'); //use the file system so we can save files
 var mongoose = require('mongoose');
 
 
-app.use(sslRedirect());
 
 const port = process.env.PORT || 8000;
 
 const app = express();
 
+app.use(sslRedirect());
 //register view engine EJS
 app.set('view engine', 'ejs')
 app.set('views', 'public')
