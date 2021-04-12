@@ -1,14 +1,24 @@
 
 html {
-  background-color: #a116ea
+  background-color: #262626
+  /* background-color: #a116ea */
 }
+
+.background {
+   background-color: #a116ea !important;
+   transition: all 1s ease-in-out;
+
+}
+
 
 body {
   background: -moz-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 50%);
   background: -webkit-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 50%);
   background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 90%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=1)
+  transition: all 1s;
 }
+
 
 html * {
   box-sizing: border-box

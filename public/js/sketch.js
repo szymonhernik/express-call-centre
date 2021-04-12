@@ -5,6 +5,13 @@ let counter =0;
 
 let paragraphs_server, p_server 			// REFERENCES TO THE pragraph div and single paragraphs
 
+document.addEventListener("DOMContentLoaded", function() {
+  setTimeout(function(){
+    document.querySelector("html").classList.add("background");
+
+}, 800);
+
+});
 
 function initSite() {
   paragraphs_server = document.querySelector( '#paragraphs_server' );
